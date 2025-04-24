@@ -89,6 +89,12 @@
   <footer>
     <p>&copy; 2025 サンプルページ</p>
   </footer>
-
+  <script>
+    document.querySelector("form").addEventListener("submit", function(e) {
+      e.preventDefault(); // ページ遷移を止める（重要）
+      alert("送信されました！");
+      sitest.achieve_for({gid:83744, sid:106865}); // カスタムゴール
+    });
+  </script>
 </body>
 </html>
