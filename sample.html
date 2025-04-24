@@ -81,7 +81,7 @@
     <br><br>
     <div style="display: flex; gap: 10px;">
       <a href="index.html">ホームページに戻る</a><br><br>
-      <a href="index.html" class="btn">ホームページに戻る</a>
+      <a href="index.html" class="btn" onclick="sendGoal()">ホームページに戻る</a>
       <button onclick="location.href='index.html';">ホームページに戻る</button>
     </div>
   </main>
@@ -90,11 +90,17 @@
     <p>&copy; 2025 サンプルページ</p>
   </footer>
   <script>
+    // フォーム送信時にカスタムゴールを送信
     document.querySelector("form").addEventListener("submit", function(e) {
-      e.preventDefault(); // ページ遷移を止める（重要）
+      e.preventDefault(); // ページ遷移を止める（重要）<-なんで？あんまわからんしそもそもページ遷移せん気がする
       alert("送信されました！");
       sitest.achieve_for({gid:83744, sid:106865}); // カスタムゴール
     });
+
+    // ボタンクリック時にカスタムゴールを送信
+    function sendGoal() {
+      sitest.achieve_for({gid:83749, sid:106870});
+    }
   </script>
 </body>
 </html>
