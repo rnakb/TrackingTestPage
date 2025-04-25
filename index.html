@@ -85,9 +85,7 @@
         <h2>さぁ、あなたもProgateでプログラミングを学んでみませんか?</h2>
         <h3>Let's learn to code, learn to be creative!</h3>
       </div>
-      <span class="btn message">
-        <a href="sample.html" style="color: white; text-decoration: none;">さっそく開発する</a>
-      </span>
+      <button class="btn message" onclick="location.href='sample.html';" style="color: white; text-decoration: none;">さっそく開発する</button>
     </div>
   </div>
   <footer>
@@ -96,5 +94,27 @@
       <p>Learn to Code, Learn to be Creative.</p>
     </div>
   </footer>
+  <style>
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #239b76;
+      color: white;
+      text-decoration: none;
+      border: none; /* 枠線を消す */
+      border-radius: 5px;
+      text-align: center;
+      outline: none; /* フォーカス時の枠線を消す */
+    }
+
+    .btn:hover {
+      background-color: #1e865f;
+    }
+
+    .btn:focus {
+      outline: none; /* フォーカス時の枠線を消す */
+      box-shadow: none; /* 必要に応じて影も消す */
+    }
+  </style>
 </body>
 </html>
