@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>簡単SPAサンプル</title>
+  <style>
+    nav a {
+      margin-right: 10px;
+    }
+    .content {
+      margin-top: 20px;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#home">ホーム</a>
+    <a href="#about">アバウト</a>
+    <a href="#contact">コンタクト</a><br><br>
+    <a href="sample.html">戻る</a>
+  </nav>
+
+  <div class="content" id="content">ここに内容が表示されます。</div>
+
+  <script>
+    function renderContent() {
+      const content = document.getElementById('content');
+      const hash = location.hash || '#home';
+
+      switch (hash) {
+        case '#home':
+          content.textContent = 'ようこそ、ホームページへ！';
+          break;
+        case '#about':
+          content.textContent = '私たちはシンプルなSPAを作っています。';
+          break;
+        case '#contact':
+          content.textContent = 'お問い合わせは example@example.com まで。';
+          break;
+        default:
+          content.textContent = 'ページが見つかりません。';
+      }
+    }
+
+    // 初回表示
+    renderContent();
+
+    // ハッシュが変わるたびに呼び出す
+    window.addEventListener('hashchange', renderContent);
+  </script>
+</body>
+</html>
