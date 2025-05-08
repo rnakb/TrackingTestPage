@@ -64,7 +64,6 @@
             sitest.refresh("35",location.href);
             console.log("SPAタグが読み込まれました");
           } else {console.log("SPAタグが読み込まれていません");}
-          }
           content.textContent = 'ようこそ、ホームページへ！';
           break;
         case '#about':
@@ -81,13 +80,14 @@
             sitest.refresh("35",location.href);
             console.log("SPAタグが読み込まれました");
           } else {console.log("SPAタグが読み込まれていません");}
-          
+
           content.textContent = 'お問い合わせは example@example.com まで。';
           break;
         default:
           content.textContent = 'ページが見つかりません。';
       }
     }
+
 
     // 初回表示
     renderContent();
