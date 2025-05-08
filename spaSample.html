@@ -55,21 +55,23 @@
     function renderContent() {
       const content = document.getElementById('content');
       const hash = location.hash || '#home';
+      console.log('Current hash:', hash); // ハッシュ値を確認
 
       switch (hash) {
         case '#home':
-          window.sitest.refresh("p68075fdcd780f",location.href);
-          window.sitest.refresh("35",location.href);
+          //window.sitest.refresh("p68075fdcd780f",location.href);
+          //sitest.refresh("35",location.href);
+          console.log(location.href);
           content.textContent = 'ようこそ、ホームページへ！';
           break;
         case '#about':
-          window.sitest.refresh("p68075fdcd780f",location.href);
-          window.sitest.refresh("35",location.href);
+          //window.sitest.refresh("p68075fdcd780f",location.href);
+          //window.sitest.refresh("35",location.href);
           content.textContent = '私たちはシンプルなSPAを作っています。';
           break;
         case '#contact':
-          window.sitest.refresh("p68075fdcd780f",location.href);
-          window.sitest.refresh("35",location.href);
+          //window.sitest.refresh("p68075fdcd780f",location.href);
+          //window.sitest.refresh("35",location.href);
           content.textContent = 'お問い合わせは example@example.com まで。';
           break;
         default:
