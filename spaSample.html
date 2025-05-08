@@ -12,6 +12,20 @@
       font-size: 1.2em;
     }
   </style>
+  <script>
+  (function (PID) {
+    var script = document.createElement("script");
+    script.src =
+      "http://localhost:8080/tag?p=" +
+      PID +
+      "&u=" +
+      encodeURIComponent(
+        location.origin + location.pathname + location.search
+      );
+    script.async = true;
+    document.head.appendChild(script);
+  })("35");
+  </script>
 </head>
 <body>
   <nav>
@@ -30,12 +44,15 @@
 
       switch (hash) {
         case '#home':
+          window.sitest.refresh(35);
           content.textContent = 'ようこそ、ホームページへ！';
           break;
         case '#about':
+          window.sitest.refresh(35);
           content.textContent = '私たちはシンプルなSPAを作っています。';
           break;
         case '#contact':
+          window.sitest.refresh(35);
           content.textContent = 'お問い合わせは example@example.com まで。';
           break;
         default:
