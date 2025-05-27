@@ -55,7 +55,18 @@
           content.textContent = 'テストマン';
           break;
         case '#contact':
-          content.textContent = 'お問い合わせは example@example.com まで。';
+          content.innerHTML = `
+            お問い合わせは example@example.com まで。
+            <br>
+            <button id="popupBtn" style="margin-top:10px;">ポップアップを表示</button>
+          `;
+          // ボタンにイベントリスナーを追加
+          setTimeout(() => {
+            const btn = document.getElementById('popupBtn');
+            if (btn) {
+              btn.onclick = () => alert('お問い合わせありがとうございます！');
+            }
+          }, 0);
           break;
           default:
             content.textContent = 'ページが見つかりません。';
