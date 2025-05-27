@@ -58,13 +58,17 @@
           content.innerHTML = `
             お問い合わせは example@example.com まで。
             <br>
-            <button id="popupBtn" style="margin-top:10px;">ポップアップを表示</button>
+            <button id="showShapeBtn" style="margin-top:10px;">図形を表示</button>
+            <div id="shapeArea"></div>
           `;
           // ボタンにイベントリスナーを追加
           setTimeout(() => {
-            const btn = document.getElementById('popupBtn');
-            if (btn) {
-              btn.onclick = () => alert('お問い合わせありがとうございます！');
+            const btn = document.getElementById('showShapeBtn');
+            const shapeArea = document.getElementById('shapeArea');
+            if (btn && shapeArea) {
+              btn.onclick = () => {
+                shapeArea.innerHTML = '<div style="width:60px;height:60px;background:red;margin-top:10px; border-radius:50%;"></div>';
+              };
             }
           }, 0);
           break;
