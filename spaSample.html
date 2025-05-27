@@ -47,36 +47,25 @@
       switch (hash) {
         case '#home':
           content.textContent = 'ようこそ、ホームページへ！';
-
-          if (window.sitest) {
-              window.sitest.refresh("p68075fdcd780f",location.href);
-              sitest.refresh("35",location.href);
-              console.log("SPAタグが読み込まれました");
-            } else {console.log("SPAタグが読み込まれていません");}
           break;
         case '#about':
-          content.textContent = '私たちはシンプルなSPAを作っています。';
-          if (window.sitest) {
-            window.sitest.refresh("p68075fdcd780f",location.href);
-            sitest.refresh("35",location.href);
-            console.log("SPAタグが読み込まれました");
-          } else {console.log("SPAタグが読み込まれていません");}
+          content.innerHTML = '私たちはシンプルなSPAを作っています。<div style="width:60px;height:60px;background:blue;margin-top:10px;"></div>';
           break;
         case '#test':
           content.textContent = 'テストマン';
           break;
         case '#contact':
-          content.textContent = 'お問い合わせは example@example.com まで。';ß
+          content.textContent = 'お問い合わせは example@example.com まで。';
+          break;
+          default:
+            content.textContent = 'ページが見つかりません。';
+          }
+
           if (window.sitest) {
             window.sitest.refresh("p68075fdcd780f",location.href);
             sitest.refresh("35",location.href);
             console.log("SPAタグが読み込まれました");
           } else {console.log("SPAタグが読み込まれていません");}
-
-          break;
-          default:
-            content.textContent = 'ページが見つかりません。';
-          }
     }
 
 
