@@ -46,36 +46,37 @@
 
       switch (hash) {
         case '#home':
-        if (window.sitest) {
-            window.sitest.refresh("p68075fdcd780f",location.href);
-            sitest.refresh("35",location.href);
-            console.log("SPAタグが読み込まれました");
-          } else {console.log("SPAタグが読み込まれていません");}
           content.textContent = 'ようこそ、ホームページへ！';
+
+          if (window.sitest) {
+              window.sitest.refresh("p68075fdcd780f",location.href);
+              sitest.refresh("35",location.href);
+              console.log("SPAタグが読み込まれました");
+            } else {console.log("SPAタグが読み込まれていません");}
           break;
         case '#about':
+          content.textContent = '私たちはシンプルなSPAを作っています。';
           if (window.sitest) {
             window.sitest.refresh("p68075fdcd780f",location.href);
             sitest.refresh("35",location.href);
             console.log("SPAタグが読み込まれました");
           } else {console.log("SPAタグが読み込まれていません");}
-          content.textContent = '私たちはシンプルなSPAを作っています。';
           break;
         case '#test':
           content.textContent = 'テストマン';
           break;
         case '#contact':
+          content.textContent = 'お問い合わせは example@example.com まで。';ß
           if (window.sitest) {
             window.sitest.refresh("p68075fdcd780f",location.href);
             sitest.refresh("35",location.href);
             console.log("SPAタグが読み込まれました");
           } else {console.log("SPAタグが読み込まれていません");}
 
-          content.textContent = 'お問い合わせは example@example.com まで。';
           break;
-        default:
-          content.textContent = 'ページが見つかりません。';
-      }
+          default:
+            content.textContent = 'ページが見つかりません。';
+          }
     }
 
 
