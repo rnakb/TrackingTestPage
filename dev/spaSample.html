@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>簡単SPAサンプル</title>
+  <style>
+    nav a {
+      margin-right: 10px;
+    }
+    .content {
+      margin-top: 20px;
+      font-size: 1.2em;
+    }
+  </style>
+  <script>
+      (function(PID){//検証用
+        var script = document.createElement("script");
+        script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
+        script.async = true;
+        document.head.appendChild(script);
+      })("p685ce03be186c");
+  </script>
+</head>
+<body>
+  <nav>
+    <a href="#home">ホーム</a>
+    <a href="#about">アバウト</a>
+    <a href="#contact">コンタクト</a><br>
+    <a href="#test">テスト</a><br><br>
+    <a href="sample.html">戻る</a>
+    <a href="./">スーパーホーム</a>
+  </nav>
+
+  <div class="content" id="content">ここに内容が表示されます。</div>
+
+  <script>
+    function renderContent() {
+      const content = document.getElementById('content');
+      const hash = location.hash || '#home';
+      console.log('Current hash:', hash); // ハッシュ値を確認
+
+      switch (hash) {
+        case '#home':
+          content.textContent = 'ようこそ、ホームページへ！';
+          break;
+        case '#about':
+          content.innerHTML = '私たちはシンプルなSPAを作っています。<div style="width:60px;height:60px;background:blue;margin-top:10px;"></div>';
+          break;
+        case '#test':
+          content.textContent = 'テストマン';
+          break;
+        case '#contact':
+          content.innerHTML = `
+            お問い合わせは example@example.com まで。
+            <br>
+            <button id="showShapeBtn" style="margin-top:10px;">図形を表示</button>
+            <div id="shapeArea"></div>
+          `;
+          // ボタンにイベントリスナーを追加
+          setTimeout(() => {
+            const btn = document.getElementById('showShapeBtn');
+            const shapeArea = document.getElementById('shapeArea');
+            if (btn && shapeArea) {
+              btn.onclick = () => {
+                shapeArea.innerHTML = '<div style="width:60px;height:60px;background:red;margin-top:10px; border-radius:50%;"></div>';
+              };
+            }
+          }, 0);
+          break;
+          default:
+            content.textContent = 'ページが見つかりません。';
+          }
+
+          if (window.sitest) {
+            window.sitest.refresh("p68075fdcd780f",location.href);
+            //sitest.refresh("35",location.href);
+            console.log("SPAタグが読み込まれました");
+            console.log(location.href);
+          } else {console.log("SPAタグが読み込まれていません");}
+    }
+
+
+    // 初回表示
+    renderContent();
+
+    // ハッシュが変わるたびに呼び出す
+    window.addEventListener('hashchange', renderContent);
+  </script>
+</body>
+</html>
