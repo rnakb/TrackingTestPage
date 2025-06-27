@@ -6,7 +6,7 @@
     <script>
     (function(PID){
     var name = decodeURIComponent(location.pathname);
-    if (name.endsWith("_dammy")) {
+    if (/\/.*_dammy(?:\.html)?$/.test(name)) {
     name = "_dammy";
     }
     var script = document.createElement("script");
