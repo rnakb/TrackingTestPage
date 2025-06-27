@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ダミーTOP</title>
+  <script>
+    (function(PID){
+    var name = decodeURIComponent(location.pathname);
+    if (name.endsWith("_dammy")) {
+    name = "_dammy";
+    }
+    var script = document.createElement("script");
+    script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search) + "&n=" + name;
+    script.async = true;
+    document.head.appendChild(script);
+    })("p685ce03be186c");
+</script>
+</head>
+<body>
+  <h1>これはトップページです</h1>
+  <a href="page2_dammy.html">完了ページへ</a><br /><br />
+  <a href="sample.html"> サンプルに戻る</a>
+</body>
+</html>
