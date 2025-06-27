@@ -10,7 +10,7 @@
     name = "_dammy";
     }
     var script = document.createElement("script");
-    script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search) + "&n=" + name;
+    script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search) + "&n=" + encodeURIComponent(name);
     script.async = true;
     document.head.appendChild(script);
     })("p685ce03be186c");
