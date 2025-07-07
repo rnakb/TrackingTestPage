@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Spotify診断アプリ</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 600px;
+      margin: 2em auto;
+      line-height: 1.6;
+    }
+    h1 {
+      font-size: 1.5em;
+      margin-bottom: 0.5em;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+    }
+    .section {
+      margin-bottom: 1.5em;
+    }
+    .section h3 {
+      margin-bottom: 0.3em;
+      font-size: 1.1em;
+      color: #333;
+    }
+    .section p {
+      margin: 0;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Spotify診断</h1>
+  <button id="loginBtn">Spotifyでログイン</button>
+  <div id="result"></div>
+
+  <script>
+    const clientId = "あなたのSpotify Client ID";
+    const redirectUri = "https://sitest.app.n8n.cloud/webhook/e9a32b6f-6b59-4403-8a8b-42cb6c5b0fb9";
+    const scopes = [
+      "user-read-recently-played",
+      "user-read-email",
+      "user-top-read"
+    ];
+
+    document.getElementById("loginBtn").addEventListener("click", () => {
+      const authUrl = `https://accounts.spotify.com/authorize?` + new URLSearchParams({
+        client_id: clientId,
+        response_type: "code",
+        redirect_uri: redirectUri,
+        scope: scopes.join(" "),
+      });
+      window.location.href = authUrl;
+    });
+
+    // リダイレクト後のクエリから result_id を取得
+    const urlParams = new URLSearchParams(window.location.search);
+    const resultId = urlParams.get("result_id");
+
+    if (resultId) {
+      document.getElementById("loginBtn").style.display = "none";
+      fetch(`https://your-n8n.app/webhook/get-analysis?result_id=${encodeURIComponent(resultId)}`)
+        .then(res => res.json())
+        .then(data => displayResult(data))
+        .catch(err => {
+          document.getElementById("result").innerText = "診断結果の取得に失敗しました。";
+          console.error(err);
+        });
+    }
+
+    function displayResult(data) {
+      const container = document.getElementById("result");
+      container.innerHTML = "";
+      for (const [key, value] of Object.entries(data)) {
+        const section = document.createElement("div");
+        section.className = "section";
+        section.innerHTML = `<h3>${formatKey(key)}</h3><p>${value}</p>`;
+        container.appendChild(section);
+      }
+    }
+
+    function formatKey(key) {
+      const dict = {
+        personality: "性格傾向",
+        favorite_food: "好きな食べ物",
+        club_activity: "中学の部活",
+        friends: "友達との関係",
+        room_habit: "部屋での過ごし方",
+        personal_rules: "こだわり",
+        habits: "クセ",
+        clothing: "服のタイプ",
+        hidden_face: "裏の顔",
+        secret: "誰にも言っていない秘密"
+      };
+      return dict[key] || key;
+    }
+  </script>
+</body>
+</html>

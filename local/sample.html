@@ -7,26 +7,6 @@
     <style></style>
     <link rel="stylesheet" type="text/css" href="css/style2.css" />
     <script>
-      (function (PID) {
-        var script = document.createElement("script");
-        script.src =
-          "https://tracking.sitest.jp/tag?p=" +
-          PID +
-          "&u=" +
-          encodeURIComponent(
-            location.origin + location.pathname + location.search
-          );
-        script.async = true;
-        document.head.appendChild(script);
-      })("p68075fdcd780f");
-
-      (function(PID){//検証用
-        var script = document.createElement("script");
-        script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
-        script.async = true;
-        document.head.appendChild(script);
-      })("p685ce03be186c");
-
         (function(PID){
         var script = document.createElement("script");
         script.src = "http://localhost:8080/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
@@ -69,8 +49,8 @@
         <br /><br />
         <div style="display: flex; gap: 10px">
           <a href="./">ホームページに戻る</a><br /><br />
-          <a href="./spotifyTest.html" class="btn" onclick="sendGoal()"
-            >spotifyyyyyyyy</a
+          <a href="./" class="btn" onclick="sendGoal()"
+            >ホームページに戻る</a
           >
           <button onclick="location.href='./';">
             ホームページに戻る

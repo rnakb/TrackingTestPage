@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Spotify OAuthログイン</title>
+</head>
+<body>
+  <h1>Spotifyにログインして診断を開始</h1>
+  <button id="loginBtn">Spotifyでログイン</button>
+
+  <script>
+    const clientId = "377a8707077a4ac884a8bc0e89872715";
+    //const redirectUri = "https://sitest.app.n8n.cloud/webhook/e9a32b6f-6b59-4403-8a8b-42cb6c5b0fb9";
+    const redirectUri = "https://sitest.app.n8n.cloud/webhook-test/e9a32b6f-6b59-4403-8a8b-42cb6c5b0fb9";
+    const scopes = [
+      "user-read-recently-played",
+      "user-read-email",
+      "user-top-read" 
+    ];
+
+    document.getElementById("loginBtn").addEventListener("click", () => {
+      const authUrl = `https://accounts.spotify.com/authorize?` + new URLSearchParams({
+        response_type: "code",
+        client_id: clientId,
+        scope: scopes.join(" "),
+        redirect_uri: redirectUri,
+      });
+
+      window.location.href = authUrl;
+    });
+  </script>
+</body>
+</html>
