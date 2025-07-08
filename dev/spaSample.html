@@ -14,6 +14,7 @@
   </style>
   <script>
       (function(PID){//検証用
+        const name = location.hash || '#home';
         var script = document.createElement("script");
         script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
         script.async = true;
@@ -73,7 +74,6 @@
 
           if (window.sitest) {
             window.sitest.refresh("p685ce03be186c",hash);
-            //sitest.refresh("35",location.href);
             console.log("SPAタグが読み込まれました");
             console.log(hash);
           } else {console.log("SPAタグが読み込まれていません");}
