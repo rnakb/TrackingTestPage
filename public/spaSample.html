@@ -14,8 +14,9 @@
   </style>
   <script>
     (function(PID){
+      const hash = location.hash || '#home';
       var script = document.createElement("script");
-      script.src = "https://tracking.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
+      script.src = "https://tracking.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search) + "&n=" + encodeURIComponent(name);
       script.async = true;
       document.head.appendChild(script);
     })("p68075fdcd780f");
