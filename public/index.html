@@ -25,7 +25,15 @@
         script.async = true;
         document.head.appendChild(script);
       })("p68075fdcd780f");
-
+    </script>
+    <script>
+    //リダイレクトテストが2タグ対応できてるか検証用のサブプロジェクト
+    (function(PID){
+      var script = document.createElement("script");
+      script.src = "https://tracking.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
+      script.async = true;
+      document.head.appendChild(script);
+    })("p687072cca41c7");
     </script>
   </head>
   <body>
