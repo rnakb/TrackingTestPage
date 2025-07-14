@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Cloud Run Auth Test</title>
+</head>
+<body>
+  <h1>Cloud Run 認証付きアクセス</h1>
+
+  <label>Cloud Run URL: <input type="text" id="url" size="60" /></label><br/>
+  <label>ID Token: <input type="text" id="token" size="80" /></label><br/>
+  <button id="go">送信</button>
+
+  <pre id="result" style="margin-top:1em; background: #eee; padding: 1em;"></pre>
+
+  <script>
+    document.getElementById('go').addEventListener('click', async () => {
+      const url = document.getElementById('url').value;
+      const token = document.getElementById('token').value;
+
+      const res = await fetch(url, {
+        method: 'GET', // or 'POST' if needed
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      });
+
+      const text = await res.text();
+      document.getElementById('result').textContent = text;
+    });
+  </script>
+</body>
+</html>
