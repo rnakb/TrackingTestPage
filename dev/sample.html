@@ -7,40 +7,40 @@
     <style></style>
     <link rel="stylesheet" type="text/css" href="css/style2.css" />
     <script>
-      /* (function(PID){//検証用
+      (function(PID){//検証用
         var script = document.createElement("script");
         script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
         script.async = true;
         document.head.appendChild(script);
-      })("p685ce03be186c"); */
+      })("p685ce03be186c");
       
       //　旧タグ
-      (function(){
-        window.sitest_sent_html = document.getElementsByTagName("html")[0].outerHTML;
-        var pid = "p685ce03be186c";
-        var dev = "";
-        if (navigator.userAgent){
-          dev = navigator.userAgent.match(/(android.*mobile|iphone|ipod|mobile\ssafari|iemobile|opera\smini|windows\sphone)/i)? "(sp)": "(pc)";
-        }else{
-          dev = "";
-        }
-        var s_params = location.search.split("?")[1];
-        var param;
-        if(s_params){
-          param = s_params.split("&").filter(function(it){ return it.match(/^(u)=/); }).join("&");
-          if(!param){
-            param = "";
-          }
-        }
-        var name = dev + decodeURIComponent(location.hostname + location.pathname);
-          if (param) {
-            name += "?" + param;
-          }
-        var script_elm = document.createElement("script");
-        script_elm.src = "//dev.sitest.jp/tracking/sitest_js?p=" + pid + "&dynamic=true&urlname=" + encodeURIComponent(name);
-        script_elm.async = true;
-        document.head.appendChild(script_elm);
-      })();
+      // (function(){
+      //   window.sitest_sent_html = document.getElementsByTagName("html")[0].outerHTML;
+      //   var pid = "p685ce03be186c";
+      //   var dev = "";
+      //   if (navigator.userAgent){
+      //     dev = navigator.userAgent.match(/(android.*mobile|iphone|ipod|mobile\ssafari|iemobile|opera\smini|windows\sphone)/i)? "(sp)": "(pc)";
+      //   }else{
+      //     dev = "";
+      //   }
+      //   var s_params = location.search.split("?")[1];
+      //   var param;
+      //   if(s_params){
+      //     param = s_params.split("&").filter(function(it){ return it.match(/^(u)=/); }).join("&");
+      //     if(!param){
+      //       param = "";
+      //     }
+      //   }
+      //   var name = dev + decodeURIComponent(location.hostname + location.pathname);
+      //     if (param) {
+      //       name += "?" + param;
+      //     }
+      //   var script_elm = document.createElement("script");
+      //   script_elm.src = "//dev.sitest.jp/tracking/sitest_js?p=" + pid + "&dynamic=true&urlname=" + encodeURIComponent(name);
+      //   script_elm.async = true;
+      //   document.head.appendChild(script_elm);
+      // })();
     </script>
   </head>
   <body style="height: 2000px">
