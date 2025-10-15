@@ -7,12 +7,20 @@
     <style></style>
     <link rel="stylesheet" type="text/css" href="css/style2.css" />
     <script>
-        (function(PID){
-        var script = document.createElement("script");
-        script.src = "http://localhost:8080/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
-        script.async = true;
-        document.head.appendChild(script);
-      })("35");
+      //   (function(PID){
+      //   var script = document.createElement("script");
+      //   script.src = "http://localhost:8080/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
+      //   script.async = true;
+      //   document.head.appendChild(script);
+      // })("35");
+      (function(){
+        window.sitest_sent_html = document.getElementsByTagName("html")[0].outerHTML;
+        var pid = "35";
+        var script_elm = document.createElement("script");
+        script_elm.src = "//localhost/tracking/sitest_js?p=" + pid + "&dynamic=true";
+        script_elm.async = true;
+        document.head.appendChild(script_elm);
+      })();
     </script>
   </head>
   <body style="height: 2000px">
@@ -67,7 +75,7 @@
         <div>フレックスボックスのアイテム3</div>
       </div><br />
 
-      <a href="spaSample.html" class="btn">SPAサンプル</a><br />
+      <a href="./spaSample.html" class="btn">SPAサンプル</a><br />
 
     </main>
 
