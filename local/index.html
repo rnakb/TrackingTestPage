@@ -13,38 +13,38 @@
     <link rel="stylesheet" type="text/css" href="css/style1.css" />
     <link rel="canonical" href="https://rnakb.github.io/TrackingTestPage/" />
     <script>
-      // (function(PID){
-      //   var script = document.createElement("script");
-      //   script.src = "http://localhost:8080/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
-      //   script.async = true;
-      //   document.head.appendChild(script);
-      // })("35");
-      (function(){
-        window.sitest_sent_html = document.getElementsByTagName("html")[0].outerHTML;
-        var pid = "35";
-        var dev = "";
-        if (navigator.userAgent){
-          dev = navigator.userAgent.match(/(android.*mobile|iphone|ipod|mobile\ssafari|iemobile|opera\smini|windows\sphone)/i)? "(sp)": "(pc)";
-        }else{
-          dev = "";
-        }
-        var s_params = location.search.split("?")[1];
-        var param;
-        if(s_params){
-          param = s_params.split("&").filter(function(it){ return it.match(/^(u)=/); }).join("&");
-          if(!param){
-            param = "";
-          }
-        }
-        var name = dev + decodeURIComponent(location.hostname + location.pathname);
-          if (param) {
-            name += "?" + param;
-          }
-        var script_elm = document.createElement("script");
-        script_elm.src = "//localhost/tracking/sitest_js?p=" + pid + "&dynamic=true&urlname=" + encodeURIComponent(name);
-        script_elm.async = true;
-        document.head.appendChild(script_elm);
-      })();
+      (function(PID){
+        var script = document.createElement("script");
+        script.src = "http://localhost:8080/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
+        script.async = true;
+        document.head.appendChild(script);
+      })("35");
+      // (function(){
+      //   window.sitest_sent_html = document.getElementsByTagName("html")[0].outerHTML;
+      //   var pid = "35";
+      //   var dev = "";
+      //   if (navigator.userAgent){
+      //     dev = navigator.userAgent.match(/(android.*mobile|iphone|ipod|mobile\ssafari|iemobile|opera\smini|windows\sphone)/i)? "(sp)": "(pc)";
+      //   }else{
+      //     dev = "";
+      //   }
+      //   var s_params = location.search.split("?")[1];
+      //   var param;
+      //   if(s_params){
+      //     param = s_params.split("&").filter(function(it){ return it.match(/^(u)=/); }).join("&");
+      //     if(!param){
+      //       param = "";
+      //     }
+      //   }
+      //   var name = dev + decodeURIComponent(location.hostname + location.pathname);
+      //     if (param) {
+      //       name += "?" + param;
+      //     }
+      //   var script_elm = document.createElement("script");
+      //   script_elm.src = "//localhost/tracking/sitest_js?p=" + pid + "&dynamic=true&urlname=" + encodeURIComponent(name);
+      //   script_elm.async = true;
+      //   document.head.appendChild(script_elm);
+      // })();
     </script>
     <script>
     // (function(PID){

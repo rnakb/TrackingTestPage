@@ -13,12 +13,12 @@
     <link rel="stylesheet" type="text/css" href="css/style1.css" />
     <link rel="canonical" href="https://rnakb.github.io/TrackingTestPage/" />
     <script>
-       (function(PID){//検証用
-        var script = document.createElement("script");
-        script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
-        script.async = true;
-        document.head.appendChild(script);
-      })("p685ce03be186c");
+      //  (function(PID){//検証用
+      //   var script = document.createElement("script");
+      //   script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
+      //   script.async = true;
+      //   document.head.appendChild(script);
+      // })("p685ce03be186c");
       // (function(PID){
       //   var script = document.createElement("script");
       //   script.src = "http://localhost:8080/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
@@ -27,6 +27,15 @@
       // })("35"); 
       
       //　旧タグ
+      (function(){
+        window.sitest_sent_html = document.getElementsByTagName("html")[0].outerHTML;
+        var pid = "p685ce03be186c";
+        var script_elm = document.createElement("script");
+        script_elm.src = "//dev.sitest.jp/tracking/sitest_js?p=" + pid + "&dynamic=true";
+        //script_elm.src = "//dev.sitest.jp/tracking/api/url_resources?p=829728&u=https%3A%2F%2Frnakab.github.io%2FTrackingTestPage%2Fdev%2Fsample.html&dy=true&n=livescript.net%2F";
+        script_elm.async = true;
+        document.head.appendChild(script_elm);
+      })();
       // (function(){
       //   window.sitest_sent_html = document.getElementsByTagName("html")[0].outerHTML;
       //   var pid = "p68c8e6c79792b";

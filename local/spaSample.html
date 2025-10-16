@@ -46,6 +46,7 @@
   <div class="content" id="content">ここに内容が表示されます。</div>
 
   <script>
+    sitest.custom_dimension_for({loginsession:'login'});
     function renderContent() {
       const content = document.getElementById('content');
       const hash = location.hash || '#home';
