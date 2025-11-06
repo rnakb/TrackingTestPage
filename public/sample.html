@@ -28,35 +28,44 @@
       //   script_elm.async = true;
       //   document.head.appendChild(script_elm);
       // })();
-(function (doc, duration) {
-  const overlay = doc.createElement('div');
-  overlay.style.position = 'fixed';
-  overlay.style.top = '0';
-  overlay.style.left = '0';
-  overlay.style.width = '100%';
-  overlay.style.height = '100%';
-  overlay.style.backgroundColor = 'white';
-  overlay.style.zIndex = '2147483647';
-  doc.documentElement.appendChild(overlay);
+      (function (doc, duration) {
+        doc.documentElement.classList.add('sitest_hidden_style');
 
-  const removeOverlay = () => {
-    if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
-  };
+        // HTMLログ取得を阻害しないようにShadow DOMを使用
+        const host = doc.createElement('div');
+        const shadow = host.attachShadow({ mode: 'closed' });
+        const overlay = doc.createElement('div');
+        Object.assign(overlay.style, {
+          position: 'fixed',
+          top: '0',
+          left: '0',
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'white',
+          zIndex: '2147483647'
+        });
+        shadow.appendChild(overlay);
 
-  setTimeout(removeOverlay, duration);
+        doc.documentElement.appendChild(host);
 
-  const observer = new MutationObserver(() => {
-    if (!doc.documentElement.classList.contains("sitest_hidden_style")) {
-      observer.disconnect();
-      removeOverlay();
-    }
-  });
+        const removeOverlay = () => {
+          if (host.parentNode) host.remove();
+          doc.documentElement.classList.remove('sitest_hidden_style');
+        };
+        setTimeout(removeOverlay, duration);
 
-  observer.observe(doc.documentElement, {
-    attributes: true,
-    attributeFilter: ['class']
-  });
-})(document, 3000);
+        const observer = new MutationObserver(() => {
+          if (!doc.documentElement.classList.contains("sitest_hidden_style")) {
+            observer.disconnect();
+            removeOverlay();
+          }
+        });
+
+        observer.observe(doc.documentElement, {
+          attributes: true,
+          attributeFilter: ['class']
+        });
+      })(document, 3000);
     </script>
   </head>
   <body style="height: 2000px">
