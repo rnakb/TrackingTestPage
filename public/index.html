@@ -12,6 +12,12 @@
     />
     <link rel="stylesheet" type="text/css" href="css/style1.css" />
     <link rel="canonical" href="https://rnakb.github.io/TrackingTestPage/" />
+    <script type='text/javascript'>
+      //ちらつき防止タグ
+      (function(e,d,a){
+      var b=document.createElement("style"),f="."+d+"{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}",c=document.getElementsByTagName("head")[0];b.setAttribute("type","text/css");b.setAttribute("class",d);if(b.styleSheet){b.styleSheet.cssText=f}else{b.appendChild(document.createTextNode(f))}c.appendChild(b);e.className+=" "+d;setHiddenStyle=function(){e.className=e.className.replace(RegExp(" ?"+d),"")};setTimeout(function(){setHiddenStyle()},a)
+      })(document.documentElement,"sitest_hidden_style",3000);
+    </script>
     <script>
       // (function (PID) {
       //   var script = document.createElement("script");
@@ -26,13 +32,15 @@
       //   document.head.appendChild(script);
       // })("p68075fdcd780f");
       (function(){
-        window.sitest_sent_html = document.getElementsByTagName("html")[0].outerHTML;
-        var pid = "p68075fdcd780f";
-        var script_elm = document.createElement("script");
-        script_elm.src = "//sitest.jp/tracking/sitest_js?p=" + pid + "&dynamic=true";
-        //script_elm.src = "//dev.sitest.jp/tracking/api/url_resources?p=829728&u=https%3A%2F%2Frnakab.github.io%2FTrackingTestPage%2Fdev%2Fsample.html&dy=true&n=livescript.net%2F";
-        script_elm.async = true;
-        document.head.appendChild(script_elm);
+        setTimeout(function () {
+          window.sitest_sent_html = document.getElementsByTagName("html")[0].outerHTML;
+          var pid = "p68075fdcd780f";
+          var script_elm = document.createElement("script");
+          script_elm.src = "//sitest.jp/tracking/sitest_js?p=" + pid + "&dynamic=true";
+          //script_elm.src = "//dev.sitest.jp/tracking/api/url_resources?p=829728&u=https%3A%2F%2Frnakab.github.io%2FTrackingTestPage%2Fdev%2Fsample.html&dy=true&n=livescript.net%2F";
+          script_elm.async = true;
+          document.head.appendChild(script_elm);
+        }, 1000);
       })();
     </script>
     <script>
@@ -43,11 +51,6 @@
     //   script.async = true;
     //   document.head.appendChild(script);
     // })("p687072cca41c7");
-    </script>
-    <script type='text/javascript'>
-    (function(e,d,a){
-    var b=document.createElement("style"),f="."+d+"{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}",c=document.getElementsByTagName("head")[0];b.setAttribute("type","text/css");b.setAttribute("class",d);if(b.styleSheet){b.styleSheet.cssText=f}else{b.appendChild(document.createTextNode(f))}c.appendChild(b);e.className+=" "+d;setHiddenStyle=function(){e.className=e.className.replace(RegExp(" ?"+d),"")};setTimeout(function(){setHiddenStyle()},a)
-    })(document.documentElement,"sitest_hidden_style",3000);
     </script>
   </head>
   <body>
