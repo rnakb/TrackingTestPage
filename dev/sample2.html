@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>サンプルページ</title>
+    <style></style>
+    <link rel="stylesheet" type="text/css" href="css/style2.css" />
+    <script>
+      // p68c8e6c79792b 俺のプロジェクト
+      (function(PID){//検証用
+        var script = document.createElement("script");
+        script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
+        script.async = true;
+        document.head.appendChild(script);
+      })("p685ce03be186c");
+      
+      //　旧タグ
+      // (function(){
+      //   window.sitest_sent_html = document.getElementsByTagName("html")[0].outerHTML;
+      //   var pid = "p685ce03be186c";
+      //   var script_elm = document.createElement("script");
+      //   script_elm.src = "//dev.sitest.jp/tracking/sitest_js?p=" + pid + "&dynamic=true";
+      //   //script_elm.src = "//dev.sitest.jp/tracking/api/url_resources?p=829728&u=https%3A%2F%2Frnakab.github.io%2FTrackingTestPage%2Fdev%2Fsample.html&dy=true&n=livescript.net%2F";
+      //   script_elm.async = true;
+      //   document.head.appendChild(script_elm);
+      // })();
+    </script>
+  </head>
+  <body style="height: 2000px">
+    <header>
+      <h1>ようこそ！サンプルページへ</h1>
+    </header>
+    <script>sitest.custom_dimension_for({loginsession:'login'});</script>
+    <main>
+      <div class="sticky-container">
+        <h1 class="sticky-test">HTMLの基本構造</h1>
+        <p>
+          これは基本的なHTMLページのサンプルです。スタイルが簡単に適用されています。
+        </p>
+
+        <ul>
+          <li><strong>HTML：</strong>Webページの構造を作ります</li>
+          <li><strong>CSS：</strong>ページのデザインを整えます</li>
+          <li>
+            <strong>JavaScript：</strong
+            >ページにインタラクティブな動作を追加します
+          </li>
+        </ul>
+
+        <form name="userForm" action="/submit" method="POST">
+          <label for="name">名前：</label><br />
+          <input type="text" id="name" name="name" required /><br /><br />
+
+          <label for="email">メールアドレス：</label><br />
+          <input type="email" id="email" name="email" required /><br /><br />
+
+          <input type="submit" value="送信" />
+          <select name="pets" id="pet-select">
+            <option value="">--1 つ選択してください--</option>
+            <option value="dog">犬</option>
+            <option value="cat">猫</option>
+            <option value="hamster">ハムスター</option>
+            <option value="parrot">オウム</option>
+            <option value="spider">クモ</option>
+            <option value="goldfish">金魚</option>
+          </select>
+          <select name="fruits" multiple>
+            <option value="apple">りんご</option>
+            <option value="banana">バナナ</option>
+            <option value="orange">オレンジ</option>
+            <option value="grape">ぶどう</option>
+          </select>
+        </form>
+        <br /><br />
+        <div style="display: flex; gap: 10px">
+          <a href="./">ホームページに戻る</a><br /><br />
+          <a href="./" class="btn" onclick="sendGoal()"
+            >ホームページに戻る</a
+          >
+          <button onclick="location.href='page1_dammy.html';">
+            ダミーへ
+          </button>
+        </div>
+      </div>
+      <div class="sticky-container" style="height: 250px; border: 1px solid red; padding: 20px;">
+        <h1 class="sticky-test">Sticky Header</h1>
+        <p>このヘッダーはスクロールしても画面の上部に固定されます。</p>
+      </div><br />
+      <div class="flex-container">
+        <div class="flex-item">フレックスボックスのアイテム1</div>
+        <div>フレックスボックスのアイテム2</div>
+        <div>フレックスボックスのアイテム3</div>
+      </div><br />
+
+      <a href="spaSample.html" class="btn">SPAサンプル</a><br />
+
+    </main>
+
+    <footer>
+      <p>&copy; 2025 サンプルページ</p>
+    </footer>
+    <script>
+      // フォーム送信時にカスタムゴールを送信
+      document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault(); // ページ遷移を止める（重要）<-なんで？あんまわからんしそもそもページ遷移せん気がする
+        alert("送信されました！");
+        sitest.achieve_for({ gid: 83744, sid: 106865 }); // カスタムゴール
+      });
+
+      // ボタンクリック時にカスタムゴールを送信
+      function sendGoal() {
+        sitest.achieve_for({ gid: 83749, sid: 106870 });
+      }
+    </script>
+  </body>
+</html>
