@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>サンプルページ</title>
+    <style>
+      @keyframes moveButton {
+        0% {
+          transform: translateX(0px);
+        }
+        100% {
+          transform: translateX(800px);
+        }
+      }
+
+      input[type="submit"] {
+        position: relative;
+        animation: moveButton 2s ease-in-out infinite alternate;
+      }
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/style2.css" />
+    <script>
+      (function(PID){
+        var script = document.createElement("script");
+        script.src = "http://localhost:8080/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
+        script.async = true;
+        document.head.appendChild(script);
+      })("35");
+      (function(PID){
+        var script = document.createElement("script");
+        script.src = "http://localhost:8080/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
+        script.async = true;
+        document.head.appendChild(script);
+      })("p691fde1abc2c8");
+
+      // (function(){
+      //   window.sitest_sent_html = document.getElementsByTagName("html")[0].outerHTML;
+      //   var pid = "35";
+      //   var script_elm = document.createElement("script");
+      //   script_elm.src = "//localhost/tracking/sitest_js?p=" + pid + "&dynamic=true";
+      //   script_elm.async = true;
+      //   document.head.appendChild(script_elm);
+      // })();
+
+      (function (doc, duration) {
+        doc.documentElement.classList.add('sitest_hidden_style');
+
+        // HTMLログ取得を阻害しないようにShadow DOMを使用
+        const host = doc.createElement('div');
+        const shadow = host.attachShadow({ mode: 'closed' });
+        const overlay = doc.createElement('div');
+        Object.assign(overlay.style, {
+          position: 'fixed',
+          top: '0',
+          left: '0',
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'white',
+          zIndex: '2147483647'
+        });
+        shadow.appendChild(overlay);
+
+        doc.documentElement.appendChild(host);
+
+        const removeOverlay = () => {
+          if (host.parentNode) host.remove();
+          doc.documentElement.classList.remove('sitest_hidden_style');
+        };
+        setTimeout(removeOverlay, duration);
+
+        const observer = new MutationObserver(() => {
+          if (!doc.documentElement.classList.contains("sitest_hidden_style")) {
+            observer.disconnect();
+            removeOverlay();
+          }
+        });
+
+        observer.observe(doc.documentElement, {
+          attributes: true,
+          attributeFilter: ['class']
+        });
+      })(document, 3000);
+    </script>
+    <script class="sitest-custom-dimension">     
+      sitest.custom_dimension_for({outinsession:'outin'});
+    </script>
+    <script class="sitest-custom-dimension">     
+      sitest.custom_dimension_for({loginsession:'login'});
+    </script>
+  </head>
+  <body style="height: 2000px">
+    <header>
+      <h1>ようこそ！サンプルページへ</h1>
+    </header>
+    <script>sitest.custom_dimension_for({loginsession:'login'});</script>
+    <main>
+      <div class="sticky-container">
+        <h1 class="sticky-test">HTMLの基本構造</h1>
+        <p>
+          これは基本的なHTMLページのサンプルです。スタイルが簡単に適用されています。
+        </p>
+
+        <ul>
+          <li><strong>HTML：</strong>Webページの構造を作ります</li>
+          <li><strong>CSS：</strong>ページのデザインを整えます</li>
+          <li>
+            <strong>JavaScript：</strong
+            >ページにインタラクティブな動作を追加します
+          </li>
+        </ul>
+
+        <form name="userForm" action="/submit" method="POST">
+          <label for="name">名前：</label><br />
+          <input type="text" id="name" name="name" required /><br /><br />
+
+          <label for="email">メールアドレス：</label><br />
+          <input type="email" id="email" name="email" required /><br /><br />
+          <!-- <select name="pets" id="pet-select">
+            <option value="">--1 つ選択してください--</option>
+            <option value="dog">犬</option>
+            <option value="cat">猫</option>
+            <option value="hamster">ハムスター</option>
+            <option value="parrot">オウム</option>
+            <option value="spider">クモ</option>
+            <option value="goldfish">金魚</option>
+          </select> -->
+          <select name="fruits" multiple>
+            <option value="apple">りんご</option>
+            <option value="banana">バナナ</option>
+            <option value="orange">オレンジ</option>
+            <option value="grape">ぶどう</option>
+          </select>
+
+          <input type="submit" value="送信" />
+        </form>
+
+        <br /><br />
+        <div style="display: flex; gap: 10px">
+          <a href="./">ホームページに戻る</a><br /><br />
+          <a href="./" class="btn" onclick="sendGoal()"
+            >ホームページに戻る</a
+          >
+          <button onclick="location.href='./';">
+            ホームページに戻る
+          </button>
+        </div>
+      </div>
+      <div class="sticky-container" style="height: 250px; border: 1px solid red; padding: 20px;">
+        <h1 class="sticky-test">Sticky Header</h1>
+        <p>このヘッダーはスクロールしても画面の上部に固定されます。</p>
+      </div><br />
+      <div class="flex-container">
+        <div class="flex-item">フレックスボックスのアイテム1</div>
+        <div>フレックスボックスのアイテム2</div>
+        <div>フレックスボックスのアイテム3</div>
+      </div><br />
+
+      <a href="./spaSample.html" class="btn">SPAサンプル</a><br />
+
+    </main>
+
+    <footer>
+      <p>&copy; 2025 サンプルページ</p>
+    </footer>
+    <script>
+      // フォーム送信時にカスタムゴールを送信
+      document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault(); // ページ遷移を止める（重要）<-なんで？あんまわからんしそもそもページ遷移せん気がする
+        alert("送信されました！");
+        sitest.achieve_for({ gid: 83744, sid: 106865 }); // カスタムゴール
+      });
+
+      // ボタンクリック時にカスタムゴールを送信
+      function sendGoal() {
+        sitest.achieve_for({ gid: 83749, sid: 106870 });
+      }
+    </script>
+  </body>
+</html>
