@@ -52,25 +52,14 @@
           <label for="name">名前：</label><br />
           <input type="text" id="name" name="name" required /><br /><br />
 
-          <label for="email">メールアドレス：</label><br />
-          <input type="email" id="email" name="email" required /><br /><br />
+          <label for="name-kana">名前ふりがな</label><br />
+          <input type="text" id="name-kana" name="name-kana" required /><br /><br />
 
-          <input type="submit" value="送信" />
-          <select name="pets" id="pet-select">
-            <option value="">--1 つ選択してください--</option>
-            <option value="dog">犬</option>
-            <option value="cat">猫</option>
-            <option value="hamster">ハムスター</option>
-            <option value="parrot">オウム</option>
-            <option value="spider">クモ</option>
-            <option value="goldfish">金魚</option>
-          </select>
-          <select name="fruits" multiple>
-            <option value="apple">りんご</option>
-            <option value="banana">バナナ</option>
-            <option value="orange">オレンジ</option>
-            <option value="grape">ぶどう</option>
-          </select>
+          <label for="address">住所：</label><br />
+          <input type="text" id="address" name="address" required /><br /><br />
+
+          <label for="address-kana">住所フリガナ：</label><br />
+          <input type="email" id="address-kana" name="address-kana" required /><br /><br />
         </form>
         <br /><br />
         <div style="display: flex; gap: 10px">
@@ -94,62 +83,7 @@
       </div><br />
 
       <a href="spaSample.html" class="btn">SPAサンプル</a><br />
-    <script>
 
-      //iframe追加
-      function createIframeAndWait(options = {}) {
-        return new Promise((resolve, reject) => {
-          const iframe = document.createElement('iframe');
-
-          iframe.src = options.src ?? 'about:blank';
-          iframe.style.width = options.width ?? '100%';
-          iframe.style.height = options.height ?? '100vh';
-          iframe.style.border = options.border ?? 'none';
-
-          iframe.onload = () => {
-            try {
-              resolve(iframe);
-            } catch (e) {
-              reject(e);
-            }
-          };
-
-          iframe.onerror = reject;
-
-          document.body.appendChild(iframe);
-        });
-      }
-      (async () => {
-        const iframe = await createIframeAndWait({
-          src: 'about:blank'
-        });
-
-        const doc = iframe.contentDocument;
-        doc.open();
-        doc.write(`
-          <!doctype html>
-          <html>
-            <head>
-              <script>
-                (function(PID){//検証用
-                  var script = document.createElement("script");
-                  script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search) + "&n=iframetest";
-                  script.async = true;
-                  document.head.appendChild(script);
-                })("p685ce03be186c");
-              <\/script>
-            </head>
-            <body>
-              <h1>iframe ready</h1>
-              <script>
-                console.log('script 実行');
-              </script>
-            </body>
-          </html>
-        `);
-        doc.close();
-      })();
-    </script>
     </main>
 
     <footer>

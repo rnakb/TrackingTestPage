@@ -7,24 +7,12 @@
     <style></style>
     <link rel="stylesheet" type="text/css" href="css/style2.css" />
     <script>
-      // p68c8e6c79792b 俺のプロジェクト
-      (function(PID){//検証用
-        var script = document.createElement("script");
-        script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
-        script.async = true;
-        document.head.appendChild(script);
-      })("p685ce03be186c");
-      
-      //　旧タグ
-      // (function(){
-      //   window.sitest_sent_html = document.getElementsByTagName("html")[0].outerHTML;
-      //   var pid = "p685ce03be186c";
-      //   var script_elm = document.createElement("script");
-      //   script_elm.src = "//dev.sitest.jp/tracking/sitest_js?p=" + pid + "&dynamic=true";
-      //   //script_elm.src = "//dev.sitest.jp/tracking/api/url_resources?p=829728&u=https%3A%2F%2Frnakab.github.io%2FTrackingTestPage%2Fdev%2Fsample.html&dy=true&n=livescript.net%2F";
-      //   script_elm.async = true;
-      //   document.head.appendChild(script_elm);
-      // })();
+    (function(PID){
+      var script = document.createElement("script");
+      script.src = "https://tracking.stage.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
+      script.async = true;
+      document.head.appendChild(script);
+    })("p68075fdcd780f");
     </script>
   </head>
   <body style="height: 2000px">
@@ -94,62 +82,6 @@
       </div><br />
 
       <a href="spaSample.html" class="btn">SPAサンプル</a><br />
-    <script>
-
-      //iframe追加
-      function createIframeAndWait(options = {}) {
-        return new Promise((resolve, reject) => {
-          const iframe = document.createElement('iframe');
-
-          iframe.src = options.src ?? 'about:blank';
-          iframe.style.width = options.width ?? '100%';
-          iframe.style.height = options.height ?? '100vh';
-          iframe.style.border = options.border ?? 'none';
-
-          iframe.onload = () => {
-            try {
-              resolve(iframe);
-            } catch (e) {
-              reject(e);
-            }
-          };
-
-          iframe.onerror = reject;
-
-          document.body.appendChild(iframe);
-        });
-      }
-      (async () => {
-        const iframe = await createIframeAndWait({
-          src: 'about:blank'
-        });
-
-        const doc = iframe.contentDocument;
-        doc.open();
-        doc.write(`
-          <!doctype html>
-          <html>
-            <head>
-              <script>
-                (function(PID){//検証用
-                  var script = document.createElement("script");
-                  script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search) + "&n=iframetest";
-                  script.async = true;
-                  document.head.appendChild(script);
-                })("p685ce03be186c");
-              <\/script>
-            </head>
-            <body>
-              <h1>iframe ready</h1>
-              <script>
-                console.log('script 実行');
-              </script>
-            </body>
-          </html>
-        `);
-        doc.close();
-      })();
-    </script>
     </main>
 
     <footer>

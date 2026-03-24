@@ -11,45 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" type="text/css" href="css/style1.css" />
-    <link rel="canonical" href="https://rnakb.github.io/TrackingTestPage/" />
     <script>
-      // (function(PID){
-      //   setTimeout(function () {
-      //   var script = document.createElement("script");
-      //   script.src = "http://localhost:8080/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
-      //   script.async = true;
-      //   document.head.appendChild(script);
-      //   }, 500);
-      // })("35");
-      //　旧タグ
-      (function(){
-        window.sitest_sent_html = document.getElementsByTagName("html")[0].outerHTML;
-        var pid = "35";
-        var script_elm = document.createElement("script");
-        script_elm.src = "//localhost/tracking/sitest_js?p=" + pid + "&dynamic=true";
-        script_elm.async = true;
-        document.head.appendChild(script_elm);
-      })();
-    </script>
-    <script>
-      // // 新タグ
-      // (function(PID){
-      //   var script = document.createElement("script");
-      //   script.src = "http://localhost:8080/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
-      //   script.async = true;
-      //   document.head.appendChild(script);
-      // })("35");
-      // (function(PID){
-      //   var script = document.createElement("script");
-      //   script.src = "http://localhost:8080/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
-      //   script.async = true;
-      //   document.head.appendChild(script);
-      // })("p691fde1abc2c8");
-    </script>
-    <script type='text/javascript'>
-      (function(e,d,a){
-      var b=document.createElement("style"),f="."+d+"{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}",c=document.getElementsByTagName("head")[0];b.setAttribute("type","text/css");b.setAttribute("class",d);if(b.styleSheet){b.styleSheet.cssText=f}else{b.appendChild(document.createTextNode(f))}c.appendChild(b);e.className+=" "+d;setHiddenStyle=function(){e.className=e.className.replace(RegExp(" ?"+d),"")};setTimeout(function(){setHiddenStyle()},a)
-      })(document.documentElement,"sitest_hidden_style",3000);
     </script>
   </head>
   <body>
@@ -71,7 +33,7 @@
     </header>
     <div class="top-wrapper">
       <div class="container">
-        <h1>LEARN TO CODE.<br />LEARN TO BE CREATIVE.</h1>
+        <h1>暗黒<br />舞踏会</h1>
         <p>
           Progateはオンラインプログラミング学習サービスです。<br />初心者にもやさしいスライドとレッスンで、ウェブサービスを作りながらプログラミングを学んでいきましょう。
         </p>
@@ -143,10 +105,17 @@
         </div>
         <button
           class="btn message"
-          onclick="location.href='./sample';"
+          onclick="location.href='sample.html';"
           style="color: white; text-decoration: none"
         >
           さっそく開発する
+        </button>
+        <button
+          class="btn message"
+          onclick="location.href='spaSample.html';"
+          style="color: white; text-decoration: none"
+        >
+          SPAアタック
         </button>
       </div>
     </div>

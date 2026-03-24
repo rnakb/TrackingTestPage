@@ -13,30 +13,41 @@
     }
   </style>
   <script>
-    // (function(PID){
-    //   var script = document.createElement("script");
-    //   script.src = "https://tracking.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
-    //   script.async = true;
-    //   document.head.appendChild(script);
-    // })("p68075fdcd780f");
-    //   (function(PID){//検証用
-    //     var script = document.createElement("script");
-    //     script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
-    //     script.async = true;
-    //     document.head.appendChild(script);
-    //   })("p685ce03be186c");
-    (function(PID){
-      var script = document.createElement("script");
-      script.src = "http://localhost:8080/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
-      script.async = true;
-      document.head.appendChild(script);
-    })("35");
-    (function(PID){
-      var script = document.createElement("script");
-      script.src = "http://localhost:8080/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
-      script.async = true;
-      document.head.appendChild(script);
-    })("p691fde1abc2c8");
+      (function(PID){//検証用
+        const name = location.hash || '#home';
+        var script = document.createElement("script");
+        script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search) + "&n=" + encodeURIComponent(name);
+        script.async = true;
+        document.head.appendChild(script);
+      })("p685ce03be186c");
+
+      //　旧タグ
+      // (function(){
+      //   window.sitest_sent_html = document.getElementsByTagName("html")[0].outerHTML;
+      //   var pid = "p685ce03be186c";
+      //   var dev = "";
+      //   if (navigator.userAgent){
+      //     dev = navigator.userAgent.match(/(android.*mobile|iphone|ipod|mobile\ssafari|iemobile|opera\smini|windows\sphone)/i)? "(sp)": "(pc)";
+      //   }else{
+      //     dev = "";
+      //   }
+      //   var s_params = location.search.split("?")[1];
+      //   var param;
+      //   if(s_params){
+      //     param = s_params.split("&").filter(function(it){ return it.match(/^(u)=/); }).join("&");
+      //     if(!param){
+      //       param = "";
+      //     }
+      //   }
+      //   var name = dev + decodeURIComponent(location.hostname + location.pathname);
+      //     if (param) {
+      //       name += "?" + param;
+      //     }
+      //   var script_elm = document.createElement("script");
+      //   script_elm.src = "//dev.sitest.jp/tracking/sitest_js?p=" + pid + "&dynamic=true&urlname=" + encodeURIComponent(location.origin + location.pathname + location.search);
+      //   script_elm.async = true;
+      //   document.head.appendChild(script_elm);
+      // })();
   </script>
 </head>
 <body>
@@ -45,14 +56,13 @@
     <a href="#about">アバウト</a>
     <a href="#contact">コンタクト</a><br>
     <a href="#test">テスト</a><br><br>
-    <a href="./sample">戻る</a>
+    <a href="sample.html">戻る</a>
     <a href="./">スーパーホーム</a>
   </nav>
 
   <div class="content" id="content">ここに内容が表示されます。</div>
 
   <script>
-    sitest.custom_dimension_for({loginsession:'login'});
     function renderContent() {
       const content = document.getElementById('content');
       const hash = location.hash || '#home';
@@ -91,10 +101,9 @@
           }
 
           if (window.sitest) {
-            window.sitest.refresh("p68075fdcd780f",location.href);
-            //sitest.refresh("35",location.href);
+            window.sitest.refresh("p685ce03be186c",hash);
             console.log("SPAタグが読み込まれました");
-            console.log(location.href);
+            console.log(hash);
           } else {console.log("SPAタグが読み込まれていません");}
     }
 
