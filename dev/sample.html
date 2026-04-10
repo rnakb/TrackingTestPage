@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>サンプルページ</title>
     <style></style>
+    <script type='text/javascript'>
+      //ちらつき防止タグ
+      (function(e,d,a){
+      var b=document.createElement("style"),f="."+d+"{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}",c=document.getElementsByTagName("head")[0];b.setAttribute("type","text/css");b.setAttribute("class",d);if(b.styleSheet){b.styleSheet.cssText=f}else{b.appendChild(document.createTextNode(f))}c.appendChild(b);e.className+=" "+d;setHiddenStyle=function(){e.className=e.className.replace(RegExp(" ?"+d),"")};setTimeout(function(){setHiddenStyle()},a)
+      })(document.documentElement,"sitest_hidden_style",3000);
+    </script>
     <link rel="stylesheet" type="text/css" href="css/style2.css" />
     <script>
       // p68c8e6c79792b 俺のプロジェクト
