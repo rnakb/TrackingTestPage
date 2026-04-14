@@ -12,6 +12,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>サンプルページ</title>
+    <script>
+      (function(PID){//検証用
+        var script = document.createElement("script");
+        script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
+        script.async = true;
+        document.head.appendChild(script);
+      })("p685ce03be186c");
+    </script>
     <!-- <script type='text/javascript'>
     //   //ちらつき防止タグ
     //   (function(e,d,a){
@@ -21,12 +29,12 @@
     <link rel="stylesheet" type="text/css" href="css/style2.css" />
     <!-- <script>
       // p68c8e6c79792b 俺のプロジェクト
-      // (function(PID){//検証用
-      //   var script = document.createElement("script");
-      //   script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
-      //   script.async = true;
-      //   document.head.appendChild(script);
-      // })("p685ce03be186c");
+      (function(PID){//検証用
+        var script = document.createElement("script");
+        script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
+        script.async = true;
+        document.head.appendChild(script);
+      })("p685ce03be186c");
       
       //　旧タグ
       // (function(){
