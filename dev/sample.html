@@ -12,6 +12,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>サンプルページ</title>
+    <style>
+      body {
+        visibility: hidden;
+      }
+
+      body.is-loaded {
+        visibility: visible;
+      }
+    </style>
     <script>
       (function(PID){//検証用
         var script = document.createElement("script");
@@ -184,6 +193,7 @@
       const loadMeasurementStart = performance.now();
 
       window.addEventListener("load", function () {
+        document.body.classList.add("is-loaded");
         console.log("load event fired");
         console.log(
           "time to load event:",
