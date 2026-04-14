@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-K32TB2NJ');</script>
+    <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>サンプルページ</title>
@@ -14,12 +22,12 @@
     <link rel="stylesheet" type="text/css" href="css/style2.css" />
     <script>
       // p68c8e6c79792b 俺のプロジェクト
-      (function(PID){//検証用
-        var script = document.createElement("script");
-        script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
-        script.async = true;
-        document.head.appendChild(script);
-      })("p685ce03be186c");
+      // (function(PID){//検証用
+      //   var script = document.createElement("script");
+      //   script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
+      //   script.async = true;
+      //   document.head.appendChild(script);
+      // })("p685ce03be186c");
       
       //　旧タグ
       // (function(){
@@ -34,6 +42,10 @@
     </script>
   </head>
   <body style="height: 2000px">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K32TB2NJ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <header>
       <h1>ようこそ！サンプルページへ</h1>
     </header>
@@ -162,6 +174,10 @@
       <p>&copy; 2025 サンプルページ</p>
     </footer>
     <script>
+      window.addEventListener("load", function () {
+        console.log("load event fired");
+      });
+
       // フォーム送信時にカスタムゴールを送信
       document.querySelector("form").addEventListener("submit", function (e) {
         e.preventDefault(); // ページ遷移を止める（重要）<-なんで？あんまわからんしそもそもページ遷移せん気がする
