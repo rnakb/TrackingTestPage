@@ -24,7 +24,10 @@
     <script>
       (function(PID){//検証用
         var script = document.createElement("script");
-        script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
+        var name = decodeURIComponent(location.hostname + location.pathname);
+        var param = "babababa";
+        name = name + "\_" + param;
+        script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search) + "&n=" + encodeURIComponent(name);
         script.async = true;
         document.head.appendChild(script);
       })("p685ce03be186c");
