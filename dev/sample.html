@@ -256,7 +256,11 @@
       .plan-card,
       .quote-card,
       .contact-panel,
-      .faq-item {
+      .faq-item,
+      .problem-card,
+      .service-card,
+      .timeline-item,
+      .news-card {
         border: 1px solid var(--line);
         border-radius: 8px;
         background: var(--white);
@@ -297,9 +301,160 @@
       .feature-card p,
       .plan-card p,
       .quote-card p,
-      .faq-item p {
+      .faq-item p,
+      .problem-card p,
+      .service-card p,
+      .timeline-item p,
+      .news-card p {
         margin: 0;
         color: var(--muted);
+      }
+
+      .problem-band {
+        background: #ffffff;
+      }
+
+      .problem-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .problem-card,
+      .service-card,
+      .timeline-item,
+      .news-card {
+        padding: 22px;
+      }
+
+      .problem-card strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 18px;
+      }
+
+      .service-band {
+        background: #f2f6fa;
+      }
+
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .service-card {
+        display: grid;
+        grid-template-columns: 52px 1fr;
+        gap: 16px;
+        align-items: start;
+      }
+
+      .service-card .icon {
+        margin: 0;
+      }
+
+      .service-card h3,
+      .timeline-item h3,
+      .news-card h3,
+      .faq-item h3 {
+        margin: 0 0 8px;
+        font-size: 19px;
+        line-height: 1.35;
+      }
+
+      .comparison-wrap {
+        overflow-x: auto;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--white);
+        box-shadow: 0 10px 28px rgba(23, 32, 38, 0.06);
+      }
+
+      .comparison-table {
+        width: 100%;
+        min-width: 720px;
+        border-collapse: collapse;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        padding: 16px 18px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+      }
+
+      .comparison-table th {
+        background: #eef4f3;
+        font-size: 14px;
+      }
+
+      .comparison-table tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 4px 10px;
+        border-radius: 8px;
+        background: #e6f5ef;
+        color: var(--green-dark);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 16px;
+      }
+
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 96px 1fr;
+        gap: 18px;
+      }
+
+      .timeline-date {
+        color: var(--green-dark);
+        font-weight: 800;
+      }
+
+      .cta-band {
+        color: var(--white);
+        background:
+          linear-gradient(90deg, rgba(8, 115, 91, 0.95), rgba(37, 99, 168, 0.88)),
+          url("assets/top.png") center / cover no-repeat;
+      }
+
+      .cta-panel {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .cta-panel h2 {
+        max-width: 720px;
+      }
+
+      .cta-panel p {
+        max-width: 640px;
+        margin: 12px 0 0;
+        color: rgba(255, 255, 255, 0.82);
+      }
+
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .news-date {
+        color: var(--green-dark);
+        font-size: 13px;
+        font-weight: 800;
       }
 
       .split {
@@ -538,11 +693,19 @@
 
         .hero-metrics,
         .feature-grid,
+        .problem-grid,
+        .service-grid,
         .plan-grid,
         .quote-grid,
+        .news-grid,
         .faq-grid,
         .split {
           grid-template-columns: 1fr;
+        }
+
+        .cta-panel {
+          align-items: flex-start;
+          flex-direction: column;
         }
 
         .showcase {
@@ -577,6 +740,11 @@
         .dashboard {
           grid-template-columns: 1fr;
         }
+
+        .service-card,
+        .timeline-item {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
@@ -600,6 +768,7 @@
       <nav class="site-nav" aria-label="メインナビゲーション">
         <a href="#features">特徴</a>
         <a href="#process">流れ</a>
+        <a href="#services" class="hide-mobile">詳細</a>
         <a href="#plans">プラン</a>
         <a href="#faq" class="hide-mobile">FAQ</a>
         <a href="#contact" class="btn">相談する</a>
@@ -670,6 +839,35 @@
         </div>
       </section>
 
+      <section class="section problem-band">
+        <div class="section-inner">
+          <div class="section-title">
+            <h2>よくある検証課題をまとめて確認</h2>
+            <p>
+              実際のLP運用で起こりがちな確認ポイントを、スクロールしながら順番に見られるようにしています。
+            </p>
+          </div>
+          <div class="problem-grid">
+            <article class="problem-card">
+              <strong>CTAが複数ある</strong>
+              <p>同じゴールに向かうリンクが複数ある状態を確認できます。</p>
+            </article>
+            <article class="problem-card">
+              <strong>フォームが下部にある</strong>
+              <p>ページ下部まで到達したユーザーの行動確認に使えます。</p>
+            </article>
+            <article class="problem-card">
+              <strong>カードが多い</strong>
+              <p>クリック可能要素と閲覧要素が混在する画面を再現しています。</p>
+            </article>
+            <article class="problem-card">
+              <strong>長いページ構成</strong>
+              <p>スクロール深度、滞在時間、途中離脱の確認に向いています。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="process">
         <div class="section-inner split">
           <div>
@@ -726,6 +924,100 @@
         </div>
       </section>
 
+      <section class="section service-band" id="services">
+        <div class="section-inner">
+          <div class="section-title">
+            <h2>サービス紹介風の詳細セクション</h2>
+            <p>
+              実ページに近い情報密度を出すため、説明カードを増やしています。
+            </p>
+          </div>
+          <div class="service-grid">
+            <article class="service-card">
+              <span class="icon">1</span>
+              <div>
+                <h3>ファーストビュー設計</h3>
+                <p>訴求、CTA、実績風の数値を置き、初回表示で主要情報が伝わる構成にしています。</p>
+              </div>
+            </article>
+            <article class="service-card">
+              <span class="icon">2</span>
+              <div>
+                <h3>コンテンツブロック</h3>
+                <p>特徴、課題、比較、導入フローなど、LPでよく使うブロックを並べています。</p>
+              </div>
+            </article>
+            <article class="service-card">
+              <span class="icon">3</span>
+              <div>
+                <h3>CVポイント</h3>
+                <p>ページ内リンク、ボタン、フォーム送信など、複数の行動ポイントを用意しています。</p>
+              </div>
+            </article>
+            <article class="service-card">
+              <span class="icon">4</span>
+              <div>
+                <h3>レスポンシブ表示</h3>
+                <p>スマートフォンでも縦に自然に読めるよう、各グリッドは1カラムへ切り替わります。</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="section-title">
+            <h2>比較表サンプル</h2>
+            <p>テーブル表示、横スクロール、プラン差分の見え方を確認できます。</p>
+          </div>
+          <div class="comparison-wrap">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>項目</th>
+                  <th>Lite</th>
+                  <th>Standard</th>
+                  <th>Growth</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>想定用途</td>
+                  <td>短期キャンペーン</td>
+                  <td><span class="tag">おすすめ</span> 広告LP検証</td>
+                  <td>継続改善</td>
+                </tr>
+                <tr>
+                  <td>セクション数</td>
+                  <td>4から6</td>
+                  <td>8から12</td>
+                  <td>12以上</td>
+                </tr>
+                <tr>
+                  <td>フォーム</td>
+                  <td>基本項目</td>
+                  <td>入力補助つき</td>
+                  <td>詳細ヒアリング対応</td>
+                </tr>
+                <tr>
+                  <td>検証イベント</td>
+                  <td>CTAクリック</td>
+                  <td>CTA・フォーム・スクロール</td>
+                  <td>複数パターン比較</td>
+                </tr>
+                <tr>
+                  <td>ページ長</td>
+                  <td>短め</td>
+                  <td>標準</td>
+                  <td>長め</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
       <section class="section plans" id="plans">
         <div class="section-inner">
           <div class="section-title">
@@ -773,6 +1065,57 @@
       <section class="section">
         <div class="section-inner">
           <div class="section-title">
+            <h2>導入までのタイムライン</h2>
+            <p>長いLPでよく使われる、時系列コンテンツのサンプルです。</p>
+          </div>
+          <div class="timeline">
+            <article class="timeline-item">
+              <div class="timeline-date">Day 1</div>
+              <div>
+                <h3>目的と計測項目を整理</h3>
+                <p>クリック、フォーム、スクロールなど、確認したいイベントを洗い出します。</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-date">Day 2</div>
+              <div>
+                <h3>ページ構成を作成</h3>
+                <p>ファーストビューから問い合わせまで、自然に読み進められる順番で配置します。</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-date">Day 3</div>
+              <div>
+                <h3>フォームとCTAを接続</h3>
+                <p>送信時の挙動、ページ内リンク、外部リンクの動作を確認します。</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-date">Day 4</div>
+              <div>
+                <h3>公開後のチェック</h3>
+                <p>表示崩れ、イベント発火、各セクションへの到達を確認します。</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section cta-band">
+        <div class="section-inner cta-panel">
+          <div>
+            <h2>途中CTAの表示確認にも使えます</h2>
+            <p>
+              長いページの途中に行動導線を置いた場合のクリック率やスクロール到達を想定したセクションです。
+            </p>
+          </div>
+          <a href="#contact" class="btn btn-secondary" onclick="sendGoal()">フォームへ進む</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="section-title">
             <h2>お客様の声サンプル</h2>
             <p>テキスト量の違うカード表示の確認にも使えます。</p>
           </div>
@@ -793,6 +1136,32 @@
         </div>
       </section>
 
+      <section class="section">
+        <div class="section-inner">
+          <div class="section-title">
+            <h2>ニュース・更新情報サンプル</h2>
+            <p>記事カード風の要素を置き、下部コンテンツの密度も確認できます。</p>
+          </div>
+          <div class="news-grid">
+            <article class="news-card">
+              <div class="news-date">2026.05.10</div>
+              <h3>キャンペーンLPのテンプレートを追加</h3>
+              <p>広告配信前の確認に使いやすい構成を想定したサンプルです。</p>
+            </article>
+            <article class="news-card">
+              <div class="news-date">2026.04.22</div>
+              <h3>フォーム項目のバリエーションを拡充</h3>
+              <p>入力欄、選択式、複数選択などの検証ができるようにしています。</p>
+            </article>
+            <article class="news-card">
+              <div class="news-date">2026.04.01</div>
+              <h3>スクロール確認用の長尺構成に対応</h3>
+              <p>閲覧深度を確認しやすいよう、セクション数を増やしました。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="faq">
         <div class="section-inner">
           <div class="section-title">
@@ -807,6 +1176,14 @@
             <article class="faq-item">
               <h3>既存の計測タグは残っていますか？</h3>
               <p>GTMタグと既存の sitest 系処理は、動作を壊さないよう維持しています。</p>
+            </article>
+            <article class="faq-item">
+              <h3>スクロール量は増えていますか？</h3>
+              <p>追加セクションにより、フォームまでの距離とページ全体の高さが増えています。</p>
+            </article>
+            <article class="faq-item">
+              <h3>スマートフォン表示も想定していますか？</h3>
+              <p>幅が狭い画面ではカードや表以外のグリッドが縦並びになります。</p>
             </article>
           </div>
         </div>
