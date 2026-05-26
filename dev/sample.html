@@ -2,196 +2,882 @@
 <html lang="ja">
   <head>
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-K32TB2NJ');</script>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-K32TB2NJ");
+    </script>
     <!-- End Google Tag Manager -->
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>サンプルページ</title>
+    <title>Growth Studio | サンプルランディングページ</title>
     <style>
+      :root {
+        --ink: #172026;
+        --muted: #66717b;
+        --line: #dce4ea;
+        --paper: #f7f9fb;
+        --white: #ffffff;
+        --green: #0f8f72;
+        --green-dark: #08735b;
+        --coral: #f46d55;
+        --blue: #2563a8;
+        --shadow: 0 18px 46px rgba(23, 32, 38, 0.13);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         visibility: hidden;
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+        line-height: 1.7;
       }
 
       body.is-loaded {
         visibility: visible;
       }
-    </style>
-    <script>
-      // (function(PID){//検証用
-      //   var script = document.createElement("script");
-      //   var name = decodeURIComponent(location.hostname + location.pathname);
-      //   var param = "babababa";
-      //   name = name + "\_" + param;
-      //   script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search) + "&n=" + encodeURIComponent(name);
-      //   script.async = true;
-      //   document.head.appendChild(script);
-      // })("p685ce03be186c");
-    </script>
-    <!-- <script type='text/javascript'>
-    //   //ちらつき防止タグ
-    //   (function(e,d,a){
-    //   var b=document.createElement("style"),f="."+d+"{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}",c=document.getElementsByTagName("head")[0];b.setAttribute("type","text/css");b.setAttribute("class",d);if(b.styleSheet){b.styleSheet.cssText=f}else{b.appendChild(document.createTextNode(f))}c.appendChild(b);e.className+=" "+d;setHiddenStyle=function(){e.className=e.className.replace(RegExp(" ?"+d),"")};setTimeout(function(){setHiddenStyle()},a)
-    //   })(document.documentElement,"sitest_hidden_style",3000);
-    </script> -->
-    <link rel="stylesheet" type="text/css" href="css/style2.css" />
-    <!-- <script>
-      // p68c8e6c79792b 俺のプロジェクト
-      (function(PID){//検証用
-        var script = document.createElement("script");
-        script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search);
-        script.async = true;
-        document.head.appendChild(script);
-      })("p685ce03be186c");
-      
-      //　旧タグ
-      // (function(){
-      //   window.sitest_sent_html = document.getElementsByTagName("html")[0].outerHTML;
-      //   var pid = "p685ce03be186c";
-      //   var script_elm = document.createElement("script");
-      //   script_elm.src = "//dev.sitest.jp/tracking/sitest_js?p=" + pid + "&dynamic=true";
-      //   //script_elm.src = "//dev.sitest.jp/tracking/api/url_resources?p=829728&u=https%3A%2F%2Frnakab.github.io%2FTrackingTestPage%2Fdev%2Fsample.html&dy=true&n=livescript.net%2F";
-      //   script_elm.async = true;
-      //   document.head.appendChild(script_elm);
-      // })();
-    </script> -->
-  </head>
-  <body style="height: 2000px">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K32TB2NJ"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <header>
-      <h1>ようこそ！サンプルページへ</h1>
-    </header>
-    <script>sitest.custom_dimension_for({loginsession:'login'});</script>
-    <main>
-      <div class="sticky-container">
-        <h1 class="sticky-test">HTMLの基本構造</h1>
-        <p>
-          これは基本的なHTMLページのサンプルです。スタイルが簡単に適用されています。
-        </p>
 
-        <ul>
-          <li><strong>HTML：</strong>Webページの構造を作ります</li>
-          <li><strong>CSS：</strong>ページのデザインを整えます</li>
-          <li>
-            <strong>JavaScript：</strong
-            >ページにインタラクティブな動作を追加します
-          </li>
-        </ul>
-
-        <form name="userForm" action="/submit" method="POST">
-          <label for="name">名前：</label><br />
-          <input type="text" id="name" name="name" required /><br /><br />
-
-          <label for="email">メールアドレス：</label><br />
-          <input type="email" id="email" name="email" required /><br /><br />
-
-          <input type="submit" value="送信" />
-          <select name="pets" id="pet-select">
-            <option value="">--1 つ選択してください--</option>
-            <option value="dog">犬</option>
-            <option value="cat">猫</option>
-            <option value="hamster">ハムスター</option>
-            <option value="parrot">オウム</option>
-            <option value="spider">クモ</option>
-            <option value="goldfish">金魚</option>
-          </select>
-          <select name="fruits" multiple>
-            <option value="apple">りんご</option>
-            <option value="banana">バナナ</option>
-            <option value="orange">オレンジ</option>
-            <option value="grape">ぶどう</option>
-          </select>
-        </form>
-        <br /><br />
-        <div style="display: flex; gap: 10px">
-          <a href="./">ホームページに戻る</a><br /><br />
-          <a href="./" class="btn" onclick="sendGoal()"
-            >ホームページに戻る</a
-          >
-          <button onclick="location.href='page1_dammy.html';">
-            ダミーへ
-          </button>
-        </div>
-      </div>
-      <div class="sticky-container" style="height: 250px; border: 1px solid red; padding: 20px;">
-        <h1 class="sticky-test">Sticky Header</h1>
-        <p>このヘッダーはスクロールしても画面の上部に固定されます。</p>
-      </div><br />
-      <div class="flex-container">
-        <div class="flex-item">フレックスボックスのアイテム1</div>
-        <div>フレックスボックスのアイテム2</div>
-        <div>フレックスボックスのアイテム3</div>
-      </div><br />
-
-      <a href="spaSample.html" class="btn">SPAサンプル</a><br />
-    <!-- <script>
-
-      //iframe追加
-      function createIframeAndWait(options = {}) {
-        return new Promise((resolve, reject) => {
-          const iframe = document.createElement('iframe');
-
-          iframe.src = options.src ?? 'about:blank';
-          iframe.style.width = options.width ?? '100%';
-          iframe.style.height = options.height ?? '100vh';
-          iframe.style.border = options.border ?? 'none';
-
-          iframe.onload = () => {
-            try {
-              resolve(iframe);
-            } catch (e) {
-              reject(e);
-            }
-          };
-
-          iframe.onerror = reject;
-
-          document.body.appendChild(iframe);
-        });
+      a {
+        color: inherit;
       }
-      (async () => {
-        const iframe = await createIframeAndWait({
-          src: 'about:blank'
-        });
 
-        const doc = iframe.contentDocument;
-        doc.open();
-        doc.write(`
-          <!doctype html>
-          <html>
-            <head>
-              <script>
-                (function(PID){//検証用
-                  var script = document.createElement("script");
-                  script.src = "https://tracking-dev.sitest.jp/tag?p=" + PID + "&u=" + encodeURIComponent(location.origin + location.pathname + location.search) + "&n=iframetest";
-                  script.async = true;
-                  document.head.appendChild(script);
-                })("p685ce03be186c");
-              <\/script>
-            </head>
-            <body>
-              <h1>iframe ready</h1>
-              <script>
-                console.log('script 実行');
-              </script>
-            </body>
-          </html>
-        `);
-        doc.close();
-      })();
-    </script> -->
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 14px clamp(18px, 5vw, 64px);
+        border-bottom: 1px solid rgba(220, 228, 234, 0.85);
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(14px);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        border-radius: 8px;
+        color: var(--white);
+        background: var(--green);
+        font-size: 18px;
+      }
+
+      .site-nav {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .site-nav a {
+        text-decoration: none;
+      }
+
+      .site-nav a:hover {
+        color: var(--green);
+      }
+
+      .btn {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 18px;
+        border: 0;
+        border-radius: 8px;
+        color: var(--white);
+        background: var(--green);
+        font-weight: 700;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background: var(--green-dark);
+      }
+
+      .btn-secondary {
+        color: var(--ink);
+        background: var(--white);
+        border: 1px solid var(--line);
+      }
+
+      .btn-secondary:hover {
+        background: #edf4f7;
+      }
+
+      .hero {
+        min-height: calc(100vh - 64px);
+        display: grid;
+        align-items: center;
+        background:
+          linear-gradient(90deg, rgba(9, 22, 28, 0.86), rgba(9, 22, 28, 0.56) 52%, rgba(9, 22, 28, 0.18)),
+          url("assets/top.png") center / cover no-repeat;
+        color: var(--white);
+      }
+
+      .hero-inner {
+        width: min(1120px, calc(100% - 36px));
+        margin: 0 auto;
+        padding: clamp(56px, 9vw, 104px) 0 clamp(72px, 10vw, 120px);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 18px;
+        color: #b7f7df;
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .hero h1 {
+        max-width: 760px;
+        margin: 0;
+        font-size: clamp(38px, 7vw, 78px);
+        line-height: 1.05;
+        letter-spacing: 0;
+      }
+
+      .hero-copy {
+        max-width: 620px;
+        margin: 22px 0 0;
+        color: rgba(255, 255, 255, 0.88);
+        font-size: clamp(16px, 2vw, 20px);
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 32px;
+      }
+
+      .hero-metrics {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        max-width: 720px;
+        margin-top: 54px;
+      }
+
+      .metric {
+        padding: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 28px;
+        line-height: 1.1;
+      }
+
+      .metric span {
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 13px;
+      }
+
+      main {
+        overflow: hidden;
+      }
+
+      .section {
+        padding: clamp(56px, 8vw, 96px) clamp(18px, 5vw, 64px);
+      }
+
+      .section-inner {
+        width: min(1120px, 100%);
+        margin: 0 auto;
+      }
+
+      .section-title {
+        max-width: 720px;
+        margin: 0 0 30px;
+      }
+
+      .section-title p {
+        margin: 10px 0 0;
+        color: var(--muted);
+      }
+
+      h2 {
+        margin: 0;
+        font-size: clamp(28px, 4vw, 44px);
+        line-height: 1.18;
+        letter-spacing: 0;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .feature-card,
+      .plan-card,
+      .quote-card,
+      .contact-panel,
+      .faq-item {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--white);
+        box-shadow: 0 10px 28px rgba(23, 32, 38, 0.06);
+      }
+
+      .feature-card {
+        padding: 24px;
+      }
+
+      .icon {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        margin-bottom: 18px;
+        place-items: center;
+        border-radius: 8px;
+        color: var(--white);
+        background: var(--blue);
+        font-size: 22px;
+      }
+
+      .feature-card:nth-child(2) .icon {
+        background: var(--green);
+      }
+
+      .feature-card:nth-child(3) .icon {
+        background: var(--coral);
+      }
+
+      .feature-card h3,
+      .plan-card h3 {
+        margin: 0 0 8px;
+        font-size: 20px;
+        line-height: 1.35;
+      }
+
+      .feature-card p,
+      .plan-card p,
+      .quote-card p,
+      .faq-item p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: clamp(28px, 5vw, 64px);
+        align-items: center;
+      }
+
+      .process-list {
+        display: grid;
+        gap: 14px;
+        margin: 28px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .process-list li {
+        display: grid;
+        grid-template-columns: 42px 1fr;
+        gap: 14px;
+        align-items: start;
+      }
+
+      .step-num {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        place-items: center;
+        border-radius: 8px;
+        background: #e6f5ef;
+        color: var(--green-dark);
+        font-weight: 800;
+      }
+
+      .showcase {
+        position: relative;
+        min-height: 420px;
+        border-radius: 8px;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.58)),
+          url("assets/top.png") center / cover no-repeat;
+        box-shadow: var(--shadow);
+      }
+
+      .dashboard {
+        position: absolute;
+        right: 24px;
+        bottom: 24px;
+        left: 24px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .dash-tile {
+        padding: 18px;
+        border-radius: 8px;
+        background: var(--white);
+        box-shadow: 0 14px 32px rgba(23, 32, 38, 0.12);
+      }
+
+      .dash-tile span {
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .dash-tile strong {
+        display: block;
+        margin-top: 6px;
+        font-size: 24px;
+      }
+
+      .plans {
+        background: #eef4f3;
+      }
+
+      .plan-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .plan-card {
+        display: flex;
+        min-height: 340px;
+        flex-direction: column;
+        padding: 24px;
+      }
+
+      .plan-card.featured {
+        border-color: rgba(15, 143, 114, 0.45);
+        box-shadow: 0 18px 46px rgba(15, 143, 114, 0.17);
+      }
+
+      .price {
+        margin: 18px 0;
+        font-size: 34px;
+        font-weight: 800;
+      }
+
+      .plan-card ul {
+        display: grid;
+        gap: 9px;
+        margin: 0 0 22px;
+        padding: 0;
+        color: var(--muted);
+        list-style: none;
+      }
+
+      .plan-card li::before {
+        content: "✓";
+        margin-right: 8px;
+        color: var(--green);
+        font-weight: 800;
+      }
+
+      .plan-card .btn {
+        margin-top: auto;
+      }
+
+      .quote-grid,
+      .faq-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .quote-card,
+      .faq-item {
+        padding: 24px;
+      }
+
+      .quote-card strong {
+        display: block;
+        margin-top: 16px;
+      }
+
+      .contact {
+        background: var(--ink);
+        color: var(--white);
+      }
+
+      .contact .section-title p {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .contact-panel {
+        padding: 24px;
+        color: var(--ink);
+      }
+
+      form {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .field {
+        display: grid;
+        gap: 6px;
+      }
+
+      .field-full {
+        grid-column: 1 / -1;
+      }
+
+      label {
+        color: #38444d;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        min-height: 46px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 10px 12px;
+        background: var(--white);
+        color: var(--ink);
+        font: inherit;
+      }
+
+      textarea {
+        min-height: 110px;
+        resize: vertical;
+      }
+
+      .form-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .form-note {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .site-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 22px clamp(18px, 5vw, 64px);
+        color: rgba(255, 255, 255, 0.78);
+        background: #11181d;
+        font-size: 14px;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 16px;
+      }
+
+      @media (max-width: 860px) {
+        .site-header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .site-nav {
+          width: 100%;
+          overflow-x: auto;
+          padding-bottom: 2px;
+        }
+
+        .hero {
+          min-height: auto;
+        }
+
+        .hero-metrics,
+        .feature-grid,
+        .plan-grid,
+        .quote-grid,
+        .faq-grid,
+        .split {
+          grid-template-columns: 1fr;
+        }
+
+        .showcase {
+          min-height: 360px;
+        }
+
+        form {
+          grid-template-columns: 1fr;
+        }
+
+        .site-footer {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .site-nav .hide-mobile {
+          display: none;
+        }
+
+        .hero-actions,
+        .form-actions {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .btn {
+          width: 100%;
+        }
+
+        .dashboard {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-K32TB2NJ"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header class="site-header">
+      <a class="brand" href="#">
+        <span class="brand-mark">G</span>
+        <span>Growth Studio</span>
+      </a>
+      <nav class="site-nav" aria-label="メインナビゲーション">
+        <a href="#features">特徴</a>
+        <a href="#process">流れ</a>
+        <a href="#plans">プラン</a>
+        <a href="#faq" class="hide-mobile">FAQ</a>
+        <a href="#contact" class="btn">相談する</a>
+      </nav>
+    </header>
+
+    <script>
+      if (window.sitest && typeof sitest.custom_dimension_for === "function") {
+        sitest.custom_dimension_for({ loginsession: "login" });
+      }
+    </script>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <p class="eyebrow">LP SAMPLE / MARKETING TEST</p>
+          <h1 id="hero-title">仮説検証をすばやく回す、サンプルLP。</h1>
+          <p class="hero-copy">
+            広告流入、フォーム送信、CTAクリック、スクロール確認などの計測テストに使いやすいよう、
+            実際のランディングページ風に構成したデモページです。
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn" onclick="sendGoal()">無料で相談する</a>
+            <a href="spaSample.html" class="btn btn-secondary">SPAサンプルを見る</a>
+          </div>
+          <div class="hero-metrics" aria-label="サンプル実績">
+            <div class="metric">
+              <strong>48h</strong>
+              <span>初期ページ公開までの目安</span>
+            </div>
+            <div class="metric">
+              <strong>12</strong>
+              <span>検証イベントを想定</span>
+            </div>
+            <div class="metric">
+              <strong>3.8x</strong>
+              <span>改善イメージのサンプル値</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="features">
+        <div class="section-inner">
+          <div class="section-title">
+            <h2>計測テストに必要な要素をひと通り配置</h2>
+            <p>
+              CTA、カード、フォーム、FAQ、プラン表示など、LPでよく使うUIをまとめています。
+            </p>
+          </div>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <span class="icon">↗</span>
+              <h3>複数CTA</h3>
+              <p>ヒーロー、プラン、問い合わせ周辺にクリック計測しやすい導線を配置しています。</p>
+            </article>
+            <article class="feature-card">
+              <span class="icon">◎</span>
+              <h3>フォーム検証</h3>
+              <p>入力、セレクト、複数選択、送信完了アラートの動作確認ができます。</p>
+            </article>
+            <article class="feature-card">
+              <span class="icon">#</span>
+              <h3>スクロール確認</h3>
+              <p>長めのページ構成なので、閲覧深度やセクション到達のテストにも使えます。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="process">
+        <div class="section-inner split">
+          <div>
+            <div class="section-title">
+              <h2>公開後の改善フローもサンプル化</h2>
+              <p>
+                LPの見た目だけでなく、問い合わせまでの導線が自然に追える構成にしています。
+              </p>
+            </div>
+            <ol class="process-list">
+              <li>
+                <span class="step-num">01</span>
+                <div>
+                  <strong>流入を受ける</strong>
+                  <p>広告やSNSからの訪問を想定したファーストビュー。</p>
+                </div>
+              </li>
+              <li>
+                <span class="step-num">02</span>
+                <div>
+                  <strong>価値を伝える</strong>
+                  <p>特徴、実績風の数値、導入メリットを短く整理。</p>
+                </div>
+              </li>
+              <li>
+                <span class="step-num">03</span>
+                <div>
+                  <strong>行動につなげる</strong>
+                  <p>CTAクリックとフォーム送信の両方を確認できます。</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div class="showcase" aria-label="ダッシュボード風のサンプル表示">
+            <div class="dashboard">
+              <div class="dash-tile">
+                <span>CVR</span>
+                <strong>6.4%</strong>
+              </div>
+              <div class="dash-tile">
+                <span>CTA Click</span>
+                <strong>1,284</strong>
+              </div>
+              <div class="dash-tile">
+                <span>Scroll 75%</span>
+                <strong>58%</strong>
+              </div>
+              <div class="dash-tile">
+                <span>Form Start</span>
+                <strong>312</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section plans" id="plans">
+        <div class="section-inner">
+          <div class="section-title">
+            <h2>用途別のサンプルプラン</h2>
+            <p>実サービス風の比較表示として、クリックや視線誘導の確認に使えます。</p>
+          </div>
+          <div class="plan-grid">
+            <article class="plan-card">
+              <h3>Lite</h3>
+              <p>小さなキャンペーン検証向け。</p>
+              <div class="price">¥50,000</div>
+              <ul>
+                <li>1ページ構成</li>
+                <li>基本フォーム</li>
+                <li>CTA 2箇所</li>
+              </ul>
+              <a href="#contact" class="btn btn-secondary">問い合わせる</a>
+            </article>
+            <article class="plan-card featured">
+              <h3>Standard</h3>
+              <p>広告LPの検証を想定した標準構成。</p>
+              <div class="price">¥120,000</div>
+              <ul>
+                <li>複数セクション</li>
+                <li>FAQ・実績表示</li>
+                <li>イベント計測確認</li>
+              </ul>
+              <a href="#contact" class="btn" onclick="sendGoal()">このプランで相談</a>
+            </article>
+            <article class="plan-card">
+              <h3>Growth</h3>
+              <p>継続改善まで見据えた構成。</p>
+              <div class="price">¥240,000</div>
+              <ul>
+                <li>A/Bテスト想定</li>
+                <li>詳細な導線設計</li>
+                <li>レポート表示</li>
+              </ul>
+              <a href="#contact" class="btn btn-secondary">詳細を見る</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="section-title">
+            <h2>お客様の声サンプル</h2>
+            <p>テキスト量の違うカード表示の確認にも使えます。</p>
+          </div>
+          <div class="quote-grid">
+            <article class="quote-card">
+              <p>
+                「デモページなのに実際のLPに近い構成なので、計測タグの検証がかなり楽になりました。」
+              </p>
+              <strong>マーケティング担当 A社</strong>
+            </article>
+            <article class="quote-card">
+              <p>
+                「フォーム、CTA、ページ内リンクがまとまっていて、検証用として扱いやすいです。」
+              </p>
+              <strong>制作ディレクター B社</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="section-inner">
+          <div class="section-title">
+            <h2>FAQ</h2>
+            <p>よくある質問エリアの表示確認用です。</p>
+          </div>
+          <div class="faq-grid">
+            <article class="faq-item">
+              <h3>このページは送信できますか？</h3>
+              <p>送信時はページ遷移せず、アラート表示とカスタムゴール送信を行います。</p>
+            </article>
+            <article class="faq-item">
+              <h3>既存の計測タグは残っていますか？</h3>
+              <p>GTMタグと既存の sitest 系処理は、動作を壊さないよう維持しています。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact">
+        <div class="section-inner split">
+          <div class="section-title">
+            <h2>問い合わせフォーム</h2>
+            <p>
+              必須入力、セレクト、複数選択、テキストエリアを含めたフォームサンプルです。
+            </p>
+          </div>
+          <div class="contact-panel">
+            <form name="userForm" action="/submit" method="POST">
+              <div class="field">
+                <label for="name">名前</label>
+                <input type="text" id="name" name="name" placeholder="山田 太郎" required />
+              </div>
+              <div class="field">
+                <label for="email">メールアドレス</label>
+                <input type="email" id="email" name="email" placeholder="sample@example.com" required />
+              </div>
+              <div class="field">
+                <label for="pet-select">検討中のカテゴリ</label>
+                <select name="pets" id="pet-select">
+                  <option value="">1つ選択してください</option>
+                  <option value="dog">広告LP</option>
+                  <option value="cat">サービスサイト</option>
+                  <option value="hamster">採用ページ</option>
+                  <option value="parrot">キャンペーン</option>
+                  <option value="spider">EC導線</option>
+                  <option value="goldfish">その他</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="fruits">興味のある施策</label>
+                <select name="fruits" id="fruits" multiple>
+                  <option value="apple">A/Bテスト</option>
+                  <option value="banana">フォーム改善</option>
+                  <option value="orange">広告改善</option>
+                  <option value="grape">アクセス解析</option>
+                </select>
+              </div>
+              <div class="field field-full">
+                <label for="message">相談内容</label>
+                <textarea id="message" name="message" placeholder="検証したい内容を入力してください"></textarea>
+              </div>
+              <div class="field-full form-actions">
+                <button type="submit" class="btn">送信する</button>
+                <a href="./" class="btn btn-secondary">ホームへ戻る</a>
+                <button type="button" class="btn btn-secondary" onclick="location.href='page1_dammy.html';">
+                  ダミーへ
+                </button>
+                <p class="form-note">送信するとデモ用の完了アラートが表示されます。</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <footer>
-      <p>&copy; 2025 サンプルページ</p>
+    <footer class="site-footer">
+      <p>&copy; 2026 Growth Studio Sample</p>
+      <div class="footer-links">
+        <a href="./">Home</a>
+        <a href="sample2.html">Sample 2</a>
+        <a href="spaSample.html">SPA</a>
+      </div>
     </footer>
+
     <script>
       const loadMeasurementStart = performance.now();
 
@@ -204,16 +890,18 @@
         );
       });
 
-      // フォーム送信時にカスタムゴールを送信
       document.querySelector("form").addEventListener("submit", function (e) {
-        e.preventDefault(); // ページ遷移を止める（重要）<-なんで？あんまわからんしそもそもページ遷移せん気がする
+        e.preventDefault();
         alert("送信されました！");
-        sitest.achieve_for({ gid: 83744, sid: 106865 }); // カスタムゴール
+        if (window.sitest && typeof sitest.achieve_for === "function") {
+          sitest.achieve_for({ gid: 83744, sid: 106865 });
+        }
       });
 
-      // ボタンクリック時にカスタムゴールを送信
       function sendGoal() {
-        sitest.achieve_for({ gid: 83749, sid: 106870 });
+        if (window.sitest && typeof sitest.achieve_for === "function") {
+          sitest.achieve_for({ gid: 83749, sid: 106870 });
+        }
       }
     </script>
   </body>
